@@ -3,9 +3,9 @@ import usersService from '../services/users';
 
 import Grid from '@mui/material/Grid';
 
-import Card from './Card';
+import UserCard from './UserCard';
 
-const CardList = () => {
+const UserCardList = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
         // Define function
@@ -31,11 +31,11 @@ const CardList = () => {
                     alignItems='center'
                     justifyContent='center'
                 >
-                    <Card user={user} />
+                    <UserCard user={user} />
                 </Grid>
             ))}
         </Grid>
     );
 };
 
-export default CardList;
+export default UserCardList;

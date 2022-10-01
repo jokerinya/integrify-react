@@ -1,5 +1,5 @@
 import axios from 'axios';
-// exact url is in the package.json file
+// url can be added to .env file
 const baseUrl = 'https://jsonplaceholder.typicode.com/users';
 
 const getAll = async () => {
