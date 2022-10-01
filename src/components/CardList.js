@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import usersService from '../services/users';
 
+import Grid from '@mui/material/Grid';
+
 import Card from './Card';
 
 const CardList = () => {
@@ -17,11 +19,22 @@ const CardList = () => {
     }, []);
 
     return (
-        <div>
+        <Grid container padding={3} rowSpacing={2}>
             {users.map((user) => (
-                <Card key={user.id} user={user} />
+                <Grid
+                    key={user.id}
+                    item
+                    xs={12}
+                    sm={6}
+                    md={4}
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='center'
+                >
+                    <Card user={user} />
+                </Grid>
             ))}
-        </div>
+        </Grid>
     );
 };
 

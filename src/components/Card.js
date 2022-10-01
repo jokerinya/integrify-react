@@ -1,25 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const style = {
-    border: 'red 1px solid',
-    borderRadius: '10px',
-    margin: '20px',
-    padding: '10px',
-};
+import CardComponent from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
+import { grey } from '@mui/material/colors';
+import CardHeader from '@mui/material/CardHeader';
 
 const Card = ({ user }) => {
-    const handleClick = () => {
-        console.log(user.id);
-    };
     return (
-        <div style={style}>
-            <p>{user.name}</p>
-            <p>{user.username}</p>
-            <button onClick={handleClick}>
-                <Link to={`/users/${user.id}`}>{user.username}</Link>
-            </button>
-        </div>
+        <CardComponent elevation={12} sx={{ width: 290 }}>
+            <CardHeader
+                avatar={
+                    <Avatar sx={{ bgcolor: grey[500] }} aria-label='recipe'>
+                        {user.name.substring(0, 1)}
+                    </Avatar>
+                }
+                title={user.name}
+                subheader={user.email}
+            />
+            <CardContent>
+                <Typography gutterBottom variant='h5' component='div'>
+                    {user.username}
+                </Typography>
+                <Typography variant='body2' color='text.secondary'>
+                    {user.address.city}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size='small' component={Link} to={`/users/${user.id}`}>
+                    Details
+                </Button>
+            </CardActions>
+        </CardComponent>
     );
 };
 
